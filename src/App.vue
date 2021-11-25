@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="cont_editor">
+      <Editor :numEditor="0"/>
+    </div>
+    <div class="cont_editor">
+      <Editor :numEditor="1"/>
+    </div>
+    <div class="cont_editor">
+      <Editor :numEditor="2"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Editor from './components/Editor.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Editor
   }
 }
 </script>
@@ -25,4 +32,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+  .cont_editor {
+    margin-bottom: 50px;
+  }
 </style>
