@@ -1,13 +1,24 @@
 <template>
   <div id="app">
     <div class="cont_editor">
-      <Editor :numEditor="0"/>
+      <Editor :idEditor="0"
+              :typeEditor="1"
+      />
     </div>
     <div class="cont_editor">
-      <Editor :numEditor="1"/>
+      <Editor :idEditor="1"
+              :typeEditor="2"
+      />
     </div>
     <div class="cont_editor">
-      <Editor :numEditor="2"/>
+      <Editor :idEditor="2"
+              :typeEditor="0"
+      />
+    </div>
+    <div class="cont_editor">
+      <Editor :idEditor="3"
+              :typeEditor="1"
+      />
     </div>
   </div>
 </template>

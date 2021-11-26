@@ -1,12 +1,250 @@
 
-#tinymce .custom_input {
-  width: 120px;
-  height: 24px;
-  outline: none;
-  border: 1px solid #337dff;
-  border-radius: 5px;
-  padding: 0 40px 0 10px;
-  transition: 0.5s ease;
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-Thin.eot');
+  src: local('Geometria Thin'), local('Geometria-Thin'),
+  url('/fonts/Geometria-Thin.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-Thin.woff') format('woff'),
+  url('/fonts/Geometria-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-MediumItalic.eot');
+  src: local('/fonts/Geometria MediumItalic'), local('Geometria-MediumItalic'),
+  url('/fonts/Geometria-MediumItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-MediumItalic.woff') format('woff'),
+  url('/fonts/Geometria-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-Italic.eot');
+  src: local('Geometria Italic'), local('Geometria-Italic'),
+  url('/fonts/Geometria-Italic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-Italic.woff') format('woff'),
+  url('/fonts/Geometria-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-Heavy.eot');
+  src: local('Geometria Heavy'), local('Geometria-Heavy'),
+  url('/fonts/Geometria-Heavy.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-Heavy.woff') format('woff'),
+  url('/fonts/Geometria-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-ExtraBoldItalic.eot');
+  src: local('Geometria ExtraBoldItalic'), local('Geometria-ExtraBoldItalic'),
+  url('/fonts/Geometria-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-ExtraBoldItalic.woff') format('woff'),
+  url('/fonts/Geometria-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-Medium.eot');
+  src: local('Geometria Medium'), local('Geometria-Medium'),
+  url('/fonts/Geometria-Medium.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-Medium.woff') format('woff'),
+  url('/fonts/Geometria-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-BoldItalic.eot');
+  src: local('Geometria BoldItalic'), local('Geometria-BoldItalic'),
+  url('/fonts/Geometria-BoldItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-BoldItalic.woff') format('woff'),
+  url('/fonts/Geometria-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-LightItalic.eot');
+  src: local('Geometria LightItalic'), local('Geometria-LightItalic'),
+  url('/fonts/Geometria-LightItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-LightItalic.woff') format('woff'),
+  url('/fonts/Geometria-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-HeavyItalic.eot');
+  src: local('Geometria HeavyItalic'), local('Geometria-HeavyItalic'),
+  url('/fonts/Geometria-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-HeavyItalic.woff') format('woff'),
+  url('/fonts/Geometria-HeavyItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria.eot');
+  src: local('Geometria'),
+  url('/fonts/Geometria.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria.woff') format('woff'),
+  url('/fonts/Geometria.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-Bold.eot');
+  src: local('Geometria Bold'), local('Geometria-Bold'),
+  url('/fonts/Geometria-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-Bold.woff') format('woff'),
+  url('/fonts/Geometria-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-ExtraBold.eot');
+  src: local('Geometria ExtraBold'), local('Geometria-ExtraBold'),
+  url('/fonts/Geometria-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-ExtraBold.woff') format('woff'),
+  url('/fonts/Geometria-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-ThinItalic.eot');
+  src: local('Geometria ThinItalic'), local('Geometria-ThinItalic'),
+  url('/fonts/Geometria-ThinItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-ThinItalic.woff') format('woff'),
+  url('/fonts/Geometria-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-ExtraLightItalic.eot');
+  src: local('Geometria ExtraLightItalic'), local('Geometria-ExtraLightItalic'),
+  url('/fonts/Geometria-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-ExtraLightItalic.woff') format('woff'),
+  url('/fonts/Geometria-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-Light.eot');
+  src: local('Geometria Light'), local('Geometria-Light'),
+  url('/fonts/Geometria-Light.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-Light.woff') format('woff'),
+  url('/fonts/Geometria-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('/fonts/Geometria-ExtraLight.eot');
+  src: local('Geometria ExtraLight'), local('Geometria-ExtraLight'),
+  url('/fonts/Geometria-ExtraLight.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Geometria-ExtraLight.woff') format('woff'),
+  url('/fonts/Geometria-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+#tinymce {
+  font-family: Geometria, "Geometria";
   font-size: 16px;
+  color: #333;
+}
+
+.custom__line_height {
+  line-height: 40px;
+}
+
+#tinymce .custom_input {
+  width: 130px;
+  height: 28px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  padding: 0 28px 0 8px;
+  transition: 0.5s ease;
   cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.2197 6.96875L8.99998 10.1885L5.78023 6.96875L4.71973 8.02925L8.99998 12.3095L13.2802 8.02925L12.2197 6.96875Z' fill='%23ABABB2'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  font-size: 15px;
+  line-height: 19px;
+}
+
+#tinymce .custom_input:hover {
+  border-color: #ABABB2;
+}
+
+#tinymce .custom_input__active {
+  border-color: #8C71FE;
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.71973 9.97166L5.78023 11.0322L8.99998 7.81241L12.2197 11.0322L13.2802 9.97166L8.99998 5.69141L4.71973 9.97166Z' fill='%238C71FE'/%3E%3C/svg%3E%0A");
+}
+
+p {
+  margin: 0;
+  /*  margin-block-start: 0;
+    margin-block-end: 0;*/
+}
+
+ul,
+ol {
+  padding-left: 32px;
+}
+hr {
+  border-bottom-width: 1px;
+  border-bottom-style: inset;
+  border-color: hsl(213, 20%, 69%);
+}
+ol,
+ol > li {
+  list-style-type: decimal;
+}
+ul,
+ul > li {
+  list-style-type: disc;
+}
+
+li > p,
+li > ol,
+li > ul {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+a {
+  color: inherit;
 }
