@@ -3,6 +3,7 @@
     <editor
       :api-key="api_key"
       :init="config"
+      v-model="editorText"
     />
 
     <div class="modal_container"
@@ -96,58 +97,19 @@ export default {
       default: () => {
         return 0
       }
+    },
+    editorContent: { // данные передаваемые в текстовый редактор
+      type: String,
+      default: () => {
+        return ''
+      }
     }
   },
   name: 'HelloWorld',
   data() {
     return {
       api_key,
-      config: {
-        height: 500,
-        menubar: false,
-        statusbar: false,
-        language_url: '/ru.js',
-        language: 'ru',
-        content_css: '/style.css',
-        plugins: [
-          'advlist autolink lists link image charmap print preview anchor',
-          'searchreplace visualblocks code fullscreen',
-          'insertdatetime media table paste code help wordcount'
-        ],
-        toolbar:
-          'bold italic underline strikethrough | forecolor  backcolor | \
-          alignleft aligncenter alignright alignjustify | \
-          bullist numlist | removeformat | pasteInput',
-        setup: (editor) => {
-          editor.on('init', () => {
-            editor.setContent('<p class="pad">Hello world!</p>');
-
-            console.log('setTimeout')
-            if ((this.typeEditor === 1) || (this.typeEditor === 2)) {
-              editor.dom.setAttrib('tinymce', 'class', 'mce-content-body  custom__line_height');
-            }
-          });
-          editor.on('Paste input click', () => {   // Change disable
-            this.checkActiveModal();
-           // console.log('the content ', editor.getContent());
-          });
-          editor.on('blur', () => {
-            console.log('on blur content ', editor.getContent());
-          });
-          editor.on('BeforeAddUndo', function() {
-            return false;
-          });
-          editor.on('ScrollContent', () => {
-            this.checkActiveModal();
-          });
-          editor.ui.registry.addButton('pasteInput', {
-            text: 'Добавить пропуск',
-            onAction: () => {
-              this.setTinyContent(editor);
-            }
-          });
-        }
-      },
+      config: {},
 
       idOpenInputContent: undefined, // id открытого блока с ответами
       enableCloseInputContent: false, // разрешить закрыть открытре модальное окно
@@ -162,12 +124,71 @@ export default {
             }
           ]
         }  */
-      ]
+      ],
+      editorText: '',
     }
   },
 
   created() {
+    this.editorText = this.editorContent;
 
+    let toolbar;
+
+    if ((this.typeEditor === 1) || (this.typeEditor === 2)) {
+      toolbar = 'bold italic underline strikethrough | forecolor  backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist | removeformat | pasteInput';
+    } else {
+      toolbar = 'bold italic underline strikethrough | forecolor  backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist | removeformat';
+    }
+
+    this.config = {
+      height: 500,
+        menubar: false,
+        statusbar: false,
+        language_url: '/ru.js',
+        language: 'ru',
+        content_css: '/style.css',
+        plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table paste code help wordcount'
+      ],
+        toolbar: toolbar,
+        setup: (editor) => {
+        editor.on('init', () => {
+          //  editor.setContent('<p class="pad">Hello world!</p>');
+
+          console.log('setTimeout')
+          if ((this.typeEditor === 1) || (this.typeEditor === 2)) {
+            editor.dom.setAttrib('tinymce', 'class', 'mce-content-body  custom__line_height');
+          }
+
+        });
+        editor.on('Paste input click', () => {   // Change disable
+          this.checkActiveModal();
+          // console.log('the content ', editor.getContent());
+        });
+        editor.on('blur', () => {
+          this.$emit('onBlur', this.editorText);
+          console.log('on blur content ', editor.getContent());
+        });
+        editor.on('BeforeAddUndo', function() {
+          return false;
+        });
+        editor.on('ScrollContent', () => {
+          this.checkActiveModal();
+        });
+        editor.ui.registry.addButton('pasteInput', {
+          text: 'Добавить пропуск',
+          onAction: () => {
+            this.setTinyContent(editor);
+          }
+        });
+      }
+    };
   },
 
   mounted() {
