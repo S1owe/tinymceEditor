@@ -321,8 +321,20 @@ export default {
       console.log('removedFunc')
       console.log($event)
       console.log($event.target.id);
-    //  let nameId = $event.target.id;
 
+      let idElem = $event.target.id;
+      let idText = 'custom_input_' + this.idEditor + '_';
+      let idContent = Number(idElem.slice(idText.length, idElem.length));
+
+
+      for (let i = 0; i < this.inputsContent.length; i++) {
+        if (this.inputsContent[i].id === idContent) {
+          this.inputsContent.splice(i, 1);
+          break;
+        }
+      }
+
+      console.log(this.inputsContent);
     },
 
     getContent() {
